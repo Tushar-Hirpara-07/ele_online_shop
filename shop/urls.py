@@ -7,4 +7,5 @@ app_name = "myapp"
 
 urlpatterns = [
     path("", views.Index, name="index"),
+    path('products', views.Products,name="products")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
