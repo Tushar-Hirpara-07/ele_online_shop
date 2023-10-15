@@ -114,9 +114,17 @@
                             <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
                                 <!-- Single Prodect -->
                                 <div class="product">
+                                    {% if prod.condition == "New" %}
                                     <span class="badges">
-                                        <span class="new">{{ prod.condition }}</span>
+                                        <span class="new" style="background-color: #7FDA69; color: #0f0f0f">{{ prod.condition }}</span>
                                     </span>
+                                    {% else %}
+                                    <span class="badges">
+                                        <span class="new" style="background-color: #FFD814; color: #0f0f0f">{{ prod.condition }}</span>
+                                    </span>
+                                    {% endif %}
+
+
                                     <div class="thumb">
                                         <a href="single-product.html" class="image">
                                             <img src="{{ prod.image }}" alt="Product" />
