@@ -9,11 +9,21 @@ def Index(request):
         'product':product
     }
     return render(request,'index.html',context)
+def Search(request):
+    query=request.GET.get('query')
+    product=Product.objects.filter(name__icontains=query)
+
+    context={
+        'product':product
+    }
+    return render(request,'search.html',context)
+
 def Products(request):
     categories=Categories.objects.all()
     color=Color.objects.all()
     filter_price=Filter_price.objects.all()
     brands=Brands.objects.all()
+    tags=Tags.objects.all()
 
 
     CATID = request.GET.get('category')
@@ -64,6 +74,8 @@ def Products(request):
         'color':color,
         'filter_price':filter_price,
         'brands':brands,
+        'tags':tags,
     }
     return render(request,'product.html',context)
+
 

@@ -8,4 +8,5 @@ app_name = "shop"
 urlpatterns = [
     path("", views.Index, name="index"),
     path("products", views.Products,name="products"),
+    path("search",views.Search,name="search"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
