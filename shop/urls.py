@@ -9,4 +9,5 @@ urlpatterns = [
     path("", views.Index, name="index"),
     path("products", views.Products,name="products"),
     path("search",views.Search,name="search"),
+    path("<str:id>",views.Single_product,name="single_product")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

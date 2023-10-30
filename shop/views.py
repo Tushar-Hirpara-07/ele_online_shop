@@ -17,6 +17,12 @@ def Search(request):
         'product':product
     }
     return render(request,'search.html',context)
+def Single_product(request,id):
+    product=Product.objects.filter(id = id).first()
+    context={
+        'prod':product,
+    }
+    return render(request,'single_product.html',context)
 
 def Products(request):
     categories=Categories.objects.all()
