@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import response,request
 from .models import *
-
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 def Index(request):
     product=Product.objects.all()
@@ -85,3 +86,34 @@ def Products(request):
     return render(request,'product.html',context)
 
 
+def HandelRegister(request):
+    if request.method=="POST":
+        username=request.POST.get('username')
+        first_name=request.POST.get('first_name')
+        last_name=request.POST.get('last_name')
+        email=request.POST.get('email')
+        pass1=request.POST.get('pass1')
+        pass2=request.POST.get('pass2')
+
+        customer=User.objects.create_user(username,email,pass1)
+        customer.first_name=first_name
+        customer.last_name=last_name
+        customer.save()
+        return redirect("shop:Register")
+    return render(request,'registration/auth.html')
+def HandelLogin(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password=  request.POST.get('password')
+        user=authenticate(username=username,password=password)
+        # print(username,password)
+        if user is not None:
+            login(request,user)
+            return redirect('shop:index')
+        else:
+            return redirect('shop:Login')
+    return render(request,'registration/auth.html')
+def HandelLogout(request):
+    logout(request)
+    redirect('shop:index')
+    return render(request, 'registration/auth.html')

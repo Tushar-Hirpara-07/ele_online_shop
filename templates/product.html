@@ -78,14 +78,14 @@
                                                                     </span>
                                                                   {% endif %}
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="{{ prod.id }}" class="image">
                                                                 <img src="{{ prod.image }}" alt="Product" />
                                                                 <img class="hover-image" src="{{ prod.image }}" alt="Product" />
                                                             </a>
                                                         </div>
                                                         <div class="content">
                                                             <span class="category"><a href="#">{{ prod.categories }}</a></span>
-                                                            <h5 class="title" style="text-align: center;"><a href="single-product.html">{{ prod.name | truncatechars:50}}
+                                                            <h5 class="title" style="text-align: center;"><a href="{{ prod.id }}">{{ prod.name | truncatechars:50}}
                                                                 </a>
                                                             </h5>
                                                             <span class="price">
@@ -113,7 +113,7 @@
                                                     <div class="col-md-5 col-lg-5 col-xl-4 mb-lm-30px">
                                                         <div class="product">
                                                             <div class="thumb">
-                                                                <a href="single-product.html" class="image">
+                                                                <a href="{{ prod.id }}" class="image">
                                                                     <img src="{{ prod.image }}" alt="Product" />
                                                                     <img class="hover-image" src="{{ prod.image }}" alt="Product" />
                                                                 </a>
@@ -133,7 +133,7 @@
                                                         <div class="content-desc-wrap">
                                                             <div class="content">
                                                                 <span class="category"><a href="#">{{ prod.categories }}</a></span>
-                                                                <h5 class="title"><a href="single-product.html">{{ prod.name }}</a></h5>
+                                                                <h5 class="title"><a href="{{ prod.id }}">{{ prod.name }}</a></h5>
                                                                 <p>{{ prod.information }} </p>
                                                             </div>
                                                             <div class="box-inner">

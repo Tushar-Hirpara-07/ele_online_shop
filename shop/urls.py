@@ -9,5 +9,10 @@ urlpatterns = [
     path("", views.Index, name="index"),
     path("products", views.Products,name="products"),
     path("search",views.Search,name="search"),
-    path("<str:id>",views.Single_product,name="single_product")
+    # path("auth",views.Auth,name="Authantication"),
+    path("register",views.HandelRegister,name='Register'),
+    path("login",views.HandelLogin,name='Login'),
+    path("logout",views.HandelLogout,name='Logout'),
+    path("<str:id>",views.Single_product,name="single_product"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
